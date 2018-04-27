@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/test', 'PagesController@index');
+
+Route::resource('posts','PostsController');
+
+Route::resource('matchs','MatchsController');
+
+Route::resource('pronostics','PronosticsController');
+
+Route::resource('scores','ScoresController');
+
+Route::resource('equipes','EquipesController');
+
+Route::resource('joueurs','JoueursController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

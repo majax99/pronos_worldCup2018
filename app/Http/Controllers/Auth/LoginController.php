@@ -36,4 +36,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function authenticated( \Illuminate\Http\Request $request, \App\User $user ) 
+    {
+        return redirect()->intended($this->redirectPath())->with('success','Bienvenue '.auth()->user()->pseudo);
+    }
 }
