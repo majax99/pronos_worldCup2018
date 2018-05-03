@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('groupe');
             $table->string('pseudo')->unique();
-            $table->string('avatar');
+            $table->string('avatar')->nullable($value = true);
             $table->boolean('isAdmin');
             $table->rememberToken();
             $table->timestamps();

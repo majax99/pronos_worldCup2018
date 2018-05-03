@@ -17,6 +17,7 @@ class CreateJoueursTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('prenom');
+            $table->integer('numero');
             $table->integer('equipe_id');
             $table->boolean('capitaine');
             $table->timestamps();

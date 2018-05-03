@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Joueurs;
 
 class JoueursController extends Controller
 {
@@ -13,7 +15,7 @@ class JoueursController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
