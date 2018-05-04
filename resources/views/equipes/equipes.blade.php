@@ -2,7 +2,7 @@
 
 @section('content')
         <div class = "row" style = "margin-top:50px;">
-            <div class="col-md-10 col-md-offset-2">
+            <div class="col-10 col-offset-2">
                 <div class="card ">
                     <div class="card-header text-white bg-success mb-3">Equipes</div>
                     <div class="card-body">

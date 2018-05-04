@@ -20,4 +20,8 @@ class Equipe extends Model
     public function joueurs(){
         return $this->hasMany('App\Joueur');
     }
+
+    public function match(){
+        return $this->hasMany('App\Match');
+    }
 }

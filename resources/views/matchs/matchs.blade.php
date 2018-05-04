@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+@foreach ($matchs as $match)
+{{dd($match->equipe)}}
+                        @endforeach
     <div class="container" id="homepage">
         <div class = "row" style = "margin-top:50px;">
             <div class="col-md-8 col-md-offset-2">
@@ -8,7 +13,7 @@
                     <div class="panel-heading panel-info">Matches</div>
                     @php ($i = 1)
                     <div class="panel-body">
-                        @foreach ($matches as $match)
+                        @foreach ($matchs as $match)
                             @if ( $i <= 2 || $i == 5 || ($i>8 && $i<34 && $i%3 ==0 || $i==37 || $i == 41 || $i == 45))
                                 <div class = "alert alert-success">
                                     <span>{{ \Carbon\Carbon::parse($match->date_match)->format('l d F Y')}}   </span>

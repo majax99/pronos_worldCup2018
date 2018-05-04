@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Joueurs;
+use App\Joueur;
 
 class JoueursController extends Controller
 {
