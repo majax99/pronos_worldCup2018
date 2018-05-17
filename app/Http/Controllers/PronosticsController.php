@@ -59,6 +59,7 @@ class PronosticsController extends Controller
             ->leftJoin('equipes as equipe2', 'matchs.equipe2', '=', 'equipe2.pays')
             ->select('matchs.*','pronostics.pronostic1 as pronostic1','pronostics.pronostic2 as pronostic2', 'equipe1.id as id1', 'equipe2.id as id2'  )
             ->where('pronostics.user_id', '=',  auth()->user()->id )
+            ->orWhere('pronostics.user_id', '=',  NULL)
             ->where('date_match',$signe, now())
             ->where('phase','=', $element)
             ->orderBy('date_match', 'ASC')
@@ -86,8 +87,11 @@ class PronosticsController extends Controller
     public function store(Request $request)
     {
         $donnees = $request->all();
+        //dd($donnees);
 
         foreach($donnees as $key => $value){
+            //echo $key.'<br>';
+            //echo $value.'<br>';
             if ($key != '_token'){
                 $num = substr($key,0,1);
                 if ($num == 1){
@@ -95,13 +99,13 @@ class PronosticsController extends Controller
                     $prono_id = DB::table('pronostics')
                         ->select('id'  )
                         ->where('pronostics.match_id' , '=', $match_id )
+                        ->where('pronostics.user_id', '=',  auth()->user()->id )
                         ->get();
-
                     $prono1 = $value;
                 }
 
                 if ($num == 2 ){
-                    if (isset($prono_id)) {
+                    if ($prono_id->count()) {
                         $prono = Pronostic::find(intval($prono_id[0]->id));
                         $prono->pronostic1 = $prono1;
                         $prono->pronostic2 = $value;
@@ -121,8 +125,6 @@ class PronosticsController extends Controller
 
             }
         }
-        /**/
-        //$test =  $request->all();
         return redirect('pronostics')->with('success', "pronostics validés");
     }
 
