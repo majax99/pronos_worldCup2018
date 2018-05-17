@@ -1,0 +1,118 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le :  jeu. 17 mai 2018 à 23:31
+-- Version du serveur :  10.1.30-MariaDB
+-- Version de PHP :  7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `prono_worldcup2018`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `pronostics`
+--
+
+CREATE TABLE `pronostics` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `match_id` int(11) NOT NULL,
+  `pronostic1` int(11) DEFAULT NULL,
+  `pronostic2` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `pronostics`
+--
+
+INSERT INTO `pronostics` (`id`, `user_id`, `match_id`, `pronostic1`, `pronostic2`, `created_at`, `updated_at`) VALUES
+(3, 1, 1, 1, 6, '2018-05-11 13:19:42', '2018-05-11 15:20:00'),
+(4, 1, 2, 5, 5, '2018-05-11 13:19:42', '2018-05-11 13:19:42'),
+(5, 1, 3, 7, 5, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(6, 1, 4, 1, 1, '2018-05-11 13:19:43', '2018-05-15 15:46:11'),
+(7, 1, 5, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(8, 1, 6, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(9, 1, 7, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(10, 1, 8, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(11, 1, 9, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(12, 1, 10, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(13, 1, 11, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(14, 1, 12, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(15, 1, 13, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(16, 1, 14, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(17, 1, 15, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(18, 1, 16, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(19, 1, 17, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(20, 1, 18, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(21, 1, 19, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(22, 1, 20, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(23, 1, 21, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(24, 1, 22, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(25, 1, 23, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(26, 1, 24, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(27, 1, 25, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(28, 1, 26, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(29, 1, 27, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(30, 1, 28, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(31, 1, 29, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(32, 1, 30, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(33, 1, 31, 2, 1, '2018-05-11 13:19:43', '2018-05-17 18:49:26'),
+(34, 1, 32, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(35, 1, 33, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(36, 1, 34, NULL, NULL, '2018-05-11 13:19:43', '2018-05-11 13:19:43'),
+(37, 1, 35, 4, 5, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(38, 1, 36, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(39, 1, 37, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(40, 1, 38, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(41, 1, 39, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(42, 1, 40, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(43, 1, 41, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(44, 1, 42, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(45, 1, 43, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(46, 1, 44, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(47, 1, 45, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(48, 1, 46, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(49, 1, 47, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44'),
+(50, 1, 48, NULL, NULL, '2018-05-11 13:19:44', '2018-05-11 13:19:44');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `pronostics`
+--
+ALTER TABLE `pronostics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `pronostics`
+--
+ALTER TABLE `pronostics`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

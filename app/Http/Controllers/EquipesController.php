@@ -17,6 +17,7 @@ class EquipesController extends Controller
     public function index()
     {
         $teams = DB::table('equipes')->paginate(8);
+
         return view('equipes/equipes')->with('teams', $teams);
     }
 
@@ -49,17 +50,19 @@ class EquipesController extends Controller
      */
     public function show($id)
     {
-        $players = Equipe::find($id)->joueurs;
+
         $team = DB::table('equipes')->find($id);
-        $data = [
+        if ($team == NULL) {
+            return view('errors/404');
+        }
+        else {
+            $players = Equipe::find($id)->joueurs;
+            $data = [
             'players'  => $players,
             'team'   => $team
-        ];
-        //return view('equipes/equipe')->with('team', $team);
-        if ($team == NULL)
-            return view('errors/404');
-        else
+            ];
             return view('equipes/equipe')->with('data',$data);
+        }
 
     }
 

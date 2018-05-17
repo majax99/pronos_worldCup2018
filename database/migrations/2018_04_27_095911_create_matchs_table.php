@@ -18,8 +18,8 @@ class CreateMatchsTable extends Migration
             $table->string('equipe1');
             $table->string('equipe2');
             $table->string('type');
-            //$table->integer('resultat1');
-            //$table->integer('resultat2');
+            $table->integer('resultat1')->nullable($value = true);
+            $table->integer('resultat2')->nullable($value = true);
             $table->integer('score_id')->nullable($value = true);
             $table->dateTime('date_match');
             $table->timestamps();

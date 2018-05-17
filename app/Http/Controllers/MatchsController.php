@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
 use App\Match;
 use App\Equipe;
 
@@ -16,7 +16,7 @@ class MatchsController extends Controller
      */
     public function index()
     {
-        $matchs = DB::table('matchs');
+        $matchs = DB::table('matchs')->get();
         return view('matchs/matchs')->with('matchs', $matchs);
     }
 

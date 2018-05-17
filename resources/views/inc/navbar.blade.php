@@ -18,7 +18,16 @@
                       </li> 
                       <li>
                         <a class="nav-link" href="/equipes">Equipes <span class="sr-only">(current)</span></a>
-                    </li>       
+                    </li>
+                        <li>
+                            <a class="nav-link" href="/matchs">Matchs <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/pronostics">Pronostics <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/classement">Classement <span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
 
                     <ul class="navbar-nav mr-auto">
