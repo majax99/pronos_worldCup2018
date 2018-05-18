@@ -2,7 +2,7 @@
 
 
 
-<div id="button2" class="btn-group btn-group-toggle text-center my-3" data-toggle="buttons">
+<div id="button2" class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
     <label class="btn btn-secondary active">
         <input type="radio" name="options" id="tour1" autocomplete="off" checked> Tour1
     </label>
@@ -13,6 +13,6 @@
         <input type="radio" name="options" id="tour3" autocomplete="off"> Tour3
     </label>
 </div>
-<div id="choixMatch">
+<div id="choixMatch" class = "text-center">
 
 </div>

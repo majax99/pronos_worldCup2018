@@ -58,10 +58,16 @@ class PronosticsController extends Controller
             ->leftJoin('equipes as equipe1', 'matchs.equipe1', '=', 'equipe1.pays')
             ->leftJoin('equipes as equipe2', 'matchs.equipe2', '=', 'equipe2.pays')
             ->select('matchs.*','pronostics.pronostic1 as pronostic1','pronostics.pronostic2 as pronostic2', 'equipe1.id as id1', 'equipe2.id as id2'  )
-            ->where('pronostics.user_id', '=',  auth()->user()->id )
-            ->orWhere('pronostics.user_id', '=',  NULL)
+            //->where('pronostics.user_id', '=',  auth()->user()->id )
+            //->orWhere('pronostics.user_id', '=',  NULL)
             ->where('date_match',$signe, now())
             ->where('phase','=', $element)
+            ->where(function($query) {
+                /** @var $query Illuminate\Database\Query\Builder  */
+                return $query->where('pronostics.user_id', '=',  auth()->user()->id)
+                    ->orWhere('pronostics.user_id', '=',  NULL);
+            })
+
             ->orderBy('date_match', 'ASC')
             ->get();
         return view('pronostics/match')->with('matchs', $matchs)
