@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Pronostic;
 
+
 class PronosticsController extends Controller
 {
 
@@ -53,25 +54,53 @@ class PronosticsController extends Controller
             $signe = '>';
         else if ($choix == 'match_end')
             $signe = '<';
-        $matchs = DB::table('matchs')
-            ->leftJoin('pronostics', 'matchs.id', '=', 'pronostics.match_id')
-            ->leftJoin('equipes as equipe1', 'matchs.equipe1', '=', 'equipe1.pays')
-            ->leftJoin('equipes as equipe2', 'matchs.equipe2', '=', 'equipe2.pays')
-            ->select('matchs.*','pronostics.pronostic1 as pronostic1','pronostics.pronostic2 as pronostic2', 'equipe1.id as id1', 'equipe2.id as id2'  )
-            //->where('pronostics.user_id', '=',  auth()->user()->id )
-            //->orWhere('pronostics.user_id', '=',  NULL)
-            ->where('date_match',$signe, now())
-            ->where('phase','=', $element)
-            ->where(function($query) {
-                /** @var $query Illuminate\Database\Query\Builder  */
-                return $query->where('pronostics.user_id', '=',  auth()->user()->id)
-                    ->orWhere('pronostics.user_id', '=',  NULL);
-            })
 
-            ->orderBy('date_match', 'ASC')
+        $prono_id  = DB::table('matchs')
+            ->leftJoin('pronostics', 'matchs.id', '=', 'pronostics.match_id')
+            ->where('pronostics.user_id','=', auth()->user()->id)
+            ->where('matchs.phase2','=',$element)
             ->get();
-        return view('pronostics/match')->with('matchs', $matchs)
-                                            ->with('choix', $choix);
+        if (count($prono_id) == 0){
+            $matchs = DB::table('matchs')
+                ->leftJoin('equipes as equipe1', 'matchs.equipe1', '=', 'equipe1.pays')
+                ->leftJoin('equipes as equipe2', 'matchs.equipe2', '=', 'equipe2.pays')
+                ->select('matchs.*', 'equipe1.id as id1', 'equipe2.id as id2')
+                //->where('pronostics.user_id', '=',  auth()->user()->id )
+                //->orWhere('pronostics.user_id', '=',  NULL)
+                ->where('date_match',$signe, now())
+                ->where('phase2','=', $element)
+                ->orderBy('date_match', 'ASC')
+                ->get();
+        }
+        else{
+            $matchs = DB::table('matchs')
+                ->leftJoin('pronostics', 'matchs.id', '=', 'pronostics.match_id')
+                ->leftJoin('equipes as equipe1', 'matchs.equipe1', '=', 'equipe1.pays')
+                ->leftJoin('equipes as equipe2', 'matchs.equipe2', '=', 'equipe2.pays')
+                ->select('matchs.*','pronostics.pronostic1 as pronostic1','pronostics.pronostic2 as pronostic2', 'equipe1.id as id1', 'equipe2.id as id2','pronostics.user_id as user_id'  )
+                //->where('pronostics.user_id', '=',  auth()->user()->id )
+                //->orWhere('pronostics.user_id', '=',  NULL)
+                ->where('date_match',$signe, now())
+                ->where('phase2','=', $element)
+                ->where(function($query) {
+                    /** @var $query Illuminate\Database\Query\Builder  */
+                    return $query->where('pronostics.user_id', '=',  auth()->user()->id)
+                        ->orWhere('pronostics.user_id', '=' , NULL);
+                })
+
+                ->orderBy('date_match', 'ASC')
+                ->get();
+        }
+
+
+        if($choix == 'match_prono'){
+            return view('pronostics/match_prono')->with('matchs', $matchs)
+                ->with('choix', $choix);
+        }
+        else if ($choix == 'match_end'){
+            return view('pronostics/match_end')->with('matchs', $matchs)
+                ->with('choix', $choix);
+        }
     }
 
     /**
@@ -131,7 +160,7 @@ class PronosticsController extends Controller
 
             }
         }
-        return redirect('pronostics')->with('success', "pronostics validés");
+        return redirect('pronostics')->with('success', "Vos pronostics ont été validés");
     }
 
     /**

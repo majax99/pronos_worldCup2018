@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Pronos-potos') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -13,20 +13,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                      </li> 
-                      <li>
-                        <a class="nav-link" href="/equipes">Equipes <span class="sr-only">(current)</span></a>
-                    </li>
-                        <li>
-                            <a class="nav-link" href="/matchs">Matchs <span class="sr-only">(current)</span></a>
+                        <li class="nav-item {{ Request::segment(1) === 'equipes' ? 'active' : null }}">
+                            <a class="nav-link" href="/equipes">Equipes <span class="sr-only">(current)</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item {{ Request::segment(1) === 'pronostics' ? 'active' : null }}">
                             <a class="nav-link" href="/pronostics">Pronostics <span class="sr-only">(current)</span></a>
                         </li>
-                        <li>
+                        <li class="nav-item {{ Request::segment(1) === 'classement' ? 'active' : null }}">
                             <a class="nav-link" href="/classement">Classement <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item {{ Request::segment(1) === 'reglement' ? 'active' : null }}">
+                            <a class="nav-link" href="/reglement">Règlement <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
 
@@ -44,7 +41,7 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->pseudo }} <span class="caret"></span>
                                 </a>                                
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -16,3 +16,13 @@
 <div id="choixMatch" class = "text-center">
 
 </div>
+
+
+<script>
+    $("#button2 :input").change(function() {
+        element2 = this.id;
+        $.get('pronostic/match/'+element+'/'+element2, function( data ) {
+            $('#choixMatch').html( data );
+        });
+    });
+</script>

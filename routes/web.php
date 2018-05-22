@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', 'HomeController@index')->middleware('auth');
 
 Route::get('/test', 'PagesController@index');
 
@@ -25,12 +24,12 @@ Route::resource('pronostics','PronosticsController');
 Route::get('pronostic/{element}', 'PronosticsController@afficherTour')->name('choix_prono');
 Route::get('pronostic/match/{choix}/{element}', 'PronosticsController@afficherMatch')->name('choix_prono2');
 
-
-Route::resource('scores','ScoresController');
-
 Route::resource('equipes','EquipesController');
 
 Route::resource('joueurs','JoueursController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
+
+Route::get('/classement', 'ClassementController@index')->name('classement');
+Route::get('/classement/{name}', 'ClassementController@show')->name('classement_user');

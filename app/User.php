@@ -27,7 +27,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // Table name
+    protected $table = 'users';
+
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+
+    public function pronostics(){
+        return $this->hasMany('App\Pronostic');
     }
 }

@@ -4,12 +4,13 @@
 
 
 
-    <div class="container" id="homepage">
+
         <div class = "row" style = "margin-top:50px;">
             <div class="col-12 d-block mx-auto">
                 <div class="card ">
-                    <div class="card-header text-center">Faire mes pronostics</div>
-
+                    <div class="card-header text-center">Faire mes pronostics<br>
+                        <i class="text-center" style = "font-size:12px">Les pronostics peuvent être fait tant que le match n'est pas commencé</i>
+                    </div>
 
                     <div class="card-body ">
                         <div class = "text-center mb-3">
@@ -22,14 +23,12 @@
                                 </label>
                             </div>
                         </div>
-                            <div id="choixTour" class = "text-center" >
-
-                            </div>
+                        <div id="choixTour" class = "text-center" >
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    </div>
 
 @endsection
 
@@ -51,9 +50,10 @@
     //var element = null ;
     $("#button :input").change(function() {
         element = this.id; // points to the clicked input button
+        console.log(element);
         $.get('pronostic/'+element, function( data ) {
             $('#choixTour').html( data );
-            var element2 = null ;
+            var element2 = 'tour1' ;
             $.get('pronostic/match/'+element+'/'+element2, function( data ) {
                     $('#choixMatch').html( data );
             });
@@ -67,17 +67,6 @@
     });
 
 
-$('input[type=number]').on('mousewheel',function(e){ $(this).blur(); });
-// Disable keyboard scrolling
-$('input[type=number]').on('keydown',function(e) {
-    var key = e.charCode || e.keyCode;
-    // Disable Up and Down Arrows on Keyboard
-    if(key == 38 || key == 40 ) {
-    e.preventDefault();
-    } else {
-    return;
-    }
-});
 
   /*  $(document).ready(function(){
         $("#selectbasic").change(function () {
