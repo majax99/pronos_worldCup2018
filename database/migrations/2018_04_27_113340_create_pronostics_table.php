@@ -17,7 +17,8 @@ class CreatePronosticsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('match_id');
-            $table->integer('score_id');
+            $table->integer('pronostic1');
+            $table->integer('pronostic2');
             $table->timestamps();
         });
     }

@@ -20,8 +20,11 @@ class CreateMatchsTable extends Migration
             $table->string('type');
             $table->integer('resultat1')->nullable($value = true);
             $table->integer('resultat2')->nullable($value = true);
-            $table->integer('score_id')->nullable($value = true);
+            $table->string('phase');
+            $table->string('phase2');
             $table->dateTime('date_match');
+            $table->string('lieu');
+            $table->string('chaine_TV');
             $table->timestamps();
         });
     }

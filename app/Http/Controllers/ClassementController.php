@@ -95,7 +95,7 @@ Finale : *4
             $points[$key]  = $row['points'];
             $score_exact[$key] = $row['score_exact'];
         }
-
+    if (!empty($tableau_point))
         array_multisort($points, SORT_DESC,$score_exact, SORT_DESC, $tableau_point);
 
         return view('classement/classement')->with('classement', $tableau_point);

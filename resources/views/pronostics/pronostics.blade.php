@@ -50,7 +50,6 @@
     //var element = null ;
     $("#button :input").change(function() {
         element = this.id; // points to the clicked input button
-        console.log(element);
         $.get('pronostic/'+element, function( data ) {
             $('#choixTour').html( data );
             var element2 = 'tour1' ;
@@ -59,6 +58,7 @@
             });
             $("#button2 :input").change(function() {
                 element2 = this.id;
+                console.log(element2);
                 $.get('pronostic/match/'+element+'/'+element2, function( data ) {
                     $('#choixMatch').html( data );
                 });

@@ -19,7 +19,7 @@
             <div class = "alert alert-success ">
                 {{Jenssegers\Date\Date::setLocale('fr')}}
 
-                <span>{{ Jenssegers\Date\Date::parse($match->date_match)->format('l d F Y')}}   </span>
+                <span>{{ ucfirst (Jenssegers\Date\Date::parse($match->date_match)->format('l d F Y'))}}   </span>
             </div>
             @php ($date = Jenssegers\Date\Date::parse($match->date_match)->format('dmY'))
         @endif
@@ -30,7 +30,7 @@
 
                 <span class="  mt-2 pr-0  col-3 text-right" >
                     <a class = "mr-1" href = "/equipes/{{$match->id1}}" style="color:black;" >{{$match->equipe1}}</a>
-                    <img src = "/img/country/{{$match->equipe1}}.png" >
+                    <img class = "mb-1"  src = "/img/country/{{$match->equipe1}}.png" >
                 </span>
                 <!--<span class = "mt-2 text-center  col-3 ml-4 " > -->
             <span class = "col-2 text-center">
@@ -46,7 +46,7 @@
                                 >
         <!--</span>--></span>
                 <span class="  mt-2 col-3 text-left pl-0">
-                <img  src = "/img/country/{{$match->equipe2}}.png" >
+                <img  class = "mb-1" src = "/img/country/{{$match->equipe2}}.png" >
                     <a class = "mr-1" href = "/equipes/{{$match->id2}}" style="color:black">{{$match->equipe2}}</a>
                 </span>
           
