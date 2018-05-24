@@ -29,23 +29,36 @@
                     </br>
                     <i >{{$match->type}}</i>
                 </span>
-
                 <span class="  mt-2 pr-0  col-3 text-right" >
                     <a class = "mr-1" href = "/equipes/{{$match->id1}}" style="color:black;" >{{$match->equipe1}}</a>
                     <img class = "mb-1"  src = "/img/country/{{$match->equipe1}}.png" >
                 </span>
-                <span class = "col-2 text-center mt-2">
-                    <strong >{{$match->resultat1}} - {{$match->resultat2}} </strong>
+                <span class = "col-2 text-center ">
+                    <strong style ="font-size:1.5em;">{{$match->resultat1}} - {{$match->resultat2}} </strong>
                 </span>
                 <span class="  mt-2 col-3 text-left pl-0">
                 <img  class = "mb-1" src = "/img/country/{{$match->equipe2}}.png" >
                 <a class = "mr-1" href = "/equipes/{{$match->id2}}" style="color:black">{{$match->equipe2}}</a>
                 </span>
-                        <span class = "float-right col-2 text-right"  >
-                                @if (method_exists($match,'pronostic1') && method_exists($match,'pronostic2') )
+                        <span class = "float-right col-2 text-right  "  >
+                            <i
+                                @if ($tableau[$i-1]["points"] == 0 )
+                                    class = "text-danger"
+                                @else
+                                    class = "text-success"
+                                @endif
+                                    >{{$tableau[$i-1]["points"]}}
+
+                                @if ($tableau[$i-1]["points"] > 0 )
+                                points
+                                @else
+                                point
+                                @endif
+
+                            </i></br>
+                                @if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2') && (!empty($match->pronostic1)))
                                     {{$match->pronostic1}} - {{$match->pronostic2}}
                                 @endif
-                                </br><i style ="font-size:0.8em;">{{$tableau[$i-1]["points"]}} points</i>
 
                         </span>
                         <br>

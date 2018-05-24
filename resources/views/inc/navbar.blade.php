@@ -23,7 +23,7 @@
                             <a class="nav-link" href="/classement">Classement <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item {{ Request::segment(1) === 'reglement' ? 'active' : null }}">
-                            <a class="nav-link" href="/reglement">Règlement <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/règles">Règlement <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
 

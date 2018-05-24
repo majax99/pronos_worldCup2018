@@ -33,3 +33,5 @@ Route::get('/home', 'HomeController@index')->middleware('auth')->name('home');
 
 Route::get('/classement', 'ClassementController@index')->name('classement');
 Route::get('/classement/{name}', 'ClassementController@show')->name('classement_user');
+
+Route::get('/règles', 'ReglesController@index')->middleware('auth')->name('regles');

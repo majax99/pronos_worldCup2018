@@ -34,12 +34,12 @@
                 </span>
                 <!--<span class = "mt-2 text-center  col-3 ml-4 " > -->
             <span class = "col-2 text-center">
-                                <input    class = "text-center  form_number" style="border:0;border-radius:5px;background-color:#d4edda;height:40px;width:40px"  type="text" onkeyup="this.value=this.value.replace(/[^\d]+/,'')" name="1pronostic{{$match->id}}"  min="0"
+                                <input    class = "text-center  form_number" style="border:0;border-radius:5px;background-color:#d4edda;height:40px;width:40px;font-size:1.3em"  type="text" onkeyup="this.value=this.value.replace(/[^\d]+/,'')" name="1pronostic{{$match->id}}"  min="0"
                                    @if (isset($match->pronostic1))
                                    value = {{$match->pronostic1}}
                                     @endif
                             > <i class = "mt-3  " >-</i>
-                                <input   class = " text-center " style="border:0;border-radius:5px;background-color:#d4edda;height:40px;width:40px" type="text" onkeyup="this.value=this.value.replace(/[^\d]+/,'')" name="2pronostic{{$match->id}}"   min="0"
+                                <input   class = " text-center " style="border:0;border-radius:5px;background-color:#d4edda;height:40px;width:40px;font-size:1.3em" type="text" onkeyup="this.value=this.value.replace(/[^\d]+/,'')" name="2pronostic{{$match->id}}"   min="0"
                                        @if (isset($match->pronostic2))
                                        value = {{$match->pronostic2}}
                                         @endif

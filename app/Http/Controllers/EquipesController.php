@@ -27,7 +27,12 @@ class EquipesController extends Controller
      */
     public function index()
     {
-        $teams = DB::table('equipes')->paginate(8);
+        //$teams = DB::table('equipes')->paginate(8);
+        $teams = DB::table('equipes')
+            ->orderBy('type', 'ASC')
+            ->orderBy('rang', 'ASC')
+            ->paginate(4);
+
 
         return view('equipes/equipes')->with('teams', $teams);
     }

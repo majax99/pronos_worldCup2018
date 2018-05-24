@@ -12,6 +12,9 @@
     <label class="btn btn-secondary">
         <input type="radio" name="options" id="tour3" autocomplete="off"> Tour3
     </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="Phase Finale" autocomplete="off"> Phase Finale
+    </label>
 </div>
 <div id="choixMatch" class = "text-center">
 

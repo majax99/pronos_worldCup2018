@@ -141,7 +141,7 @@ Finale : *4
 
 
             if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2
-                    || $match->resultat1 = $match->resultat2 && $match->pronostic1 = $match->pronostic2
+                    || $match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2
                             || $match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
                 && ($match->pronostic1 != NULL || $match->pronostic2 != NULL ))
             {

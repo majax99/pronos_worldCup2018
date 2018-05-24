@@ -10,11 +10,12 @@
 @endif
 
 <div class="jumbotron "  id="accueil">
-    <h1 class="text-center">Pronos-Potos <br>
-        <img src = "img/country/Russie.png" >
-        Edition : coupe du monde 2018
-        <img src = "img/country/Russie.png" >
-    </h1>
+    <div class = "row ">
+        <img class = "col-2 offset-sm-2" src = "img/web_site/logo_CM2018.png" style = "height:150px">
+        <h1 class="text-center col-6">Pronos-Potos<br>
+        Coupe du monde 2018
+        </h1>
+    </div>
 </div>
 
 <!-- PROCHAINS MATCHS -->

@@ -105,10 +105,10 @@ class PronosticsController extends Controller
             foreach($matchs as $match){
                 $tableau_prono[$i]['equipe1'] = $match->equipe1;
                 $tableau_prono[$i]['equipe2'] = $match->equipe2;
-                if (method_exists($match,'pronostic1')){
+                if (property_exists($match,'pronostic1')){
                     $tableau_prono[$i]['pronostic1'] = $match->pronostic1;
                 }
-                if (method_exists($match,'pronostic2')){
+                if (property_exists($match,'pronostic2')){
                     $tableau_prono[$i]['pronostic2'] = $match->pronostic2;
                 }
                 $tableau_prono[$i]['resultat1'] = $match->resultat1;
@@ -132,9 +132,9 @@ class PronosticsController extends Controller
                 else if ($match->phase == 'finale')
                     $multiplicateur = 4;
 
-                if (method_exists($match,'pronostic1') && method_exists($match,'pronostic2')) {
+                if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2')) {
                     if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2
-                            || $match->resultat1 = $match->resultat2 && $match->pronostic1 = $match->pronostic2
+                            || $match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2
                                     || $match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
                         && ($match->pronostic1 != NULL || $match->pronostic2 != NULL)) {
                         if (($match->resultat1 <> $match->pronostic1 && $match->resultat2 <> $match->pronostic2) &&
@@ -149,13 +149,13 @@ class PronosticsController extends Controller
                         else if ($match->resultat1 == $match->pronostic1 && $match->resultat2 == $match->pronostic2)
                             $tableau_prono[$i]['points'] = 8 * $multiplicateur + $points_8eme;
                     }
+                    else
+                        $tableau_prono[$i]['points']= 0;
                 }
                 else
                     $tableau_prono[$i]['points']= 0;
                 $i++;
             }
-
-
             return view('pronostics/match_end')->with('matchs', $matchs)
                 ->with('choix', $choix)
                 ->with('tableau', $tableau_prono);
