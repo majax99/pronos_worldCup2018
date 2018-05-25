@@ -11,8 +11,8 @@
                                 <table id="tableProno" class="table table-condensed">
                                     <thead class="thead-dark">
                                     <th style="width:5%;"></th>
-                                    <th class= "text-center" style="vertical-align:middle;">Nom </th>
                                     <th class= "text-center" style="vertical-align:middle;"> Pays </th>
+                                    <th class= "text-center" style="vertical-align:middle;">Nom </th>
                                     <th class= "text-center" style="vertical-align:middle;"> Groupe </th>
                                     <th class= "text-center" style="vertical-align:middle;"> Rang  </th>
                                     </thead>
@@ -25,11 +25,12 @@
                                         @else
                                             @php( $j = $i )
                                         @endif
+                                        @php($pays = str_replace("_", " ", $team->pays))
                                         <tr class='clickable-row' data-href="{{url('equipes',['id'=>$team->id])}}">
 
                                             <td class = "text-center"><img  src = "/img/country/{{$team->pays}}.png">                     </td>
+                                            <td class = "text-center"> {{$pays}}                           </td>
                                             <td class = "text-center"> {{$team->nom}}                             </td>
-                                            <td class = "text-center"> {{$team->pays}}                             </td>
                                             <td class = "text-center"> {{$team->type}}                             </td>
                                             <td class = "text-center"> {{$team->rang}}                             </td>
 

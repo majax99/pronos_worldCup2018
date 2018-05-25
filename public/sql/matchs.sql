@@ -97,22 +97,22 @@ INSERT INTO `matchs` (`id`, `equipe1`, `equipe2`, `type`, `resultat1`, `resultat
 (45, 'Japon', 'Pologne', 'Groupe H', NULL, NULL,  'tour3', 'tour3', '2018-06-28 16:00:00', 'Volgograd', 'Bein', NULL, NULL),
 (46, 'Senegal', 'Colombie', 'Groupe H', NULL, NULL,  'tour3', 'tour3', '2018-06-28 16:00:00', 'Samara', 'Bein', NULL, NULL),
 (47, 'Angleterre', 'Belgique', 'Groupe G', NULL, NULL,  'tour3', 'tour3', '2018-06-28 20:00:00', 'Kaliningrad', 'Bein', NULL, NULL),
-(48, 'Panama', 'Tunisie', 'Groupe G', NULL, NULL,'tour3', 'tour3', '2018-06-28 20:00:00', 'Saransk', 'Bein', NULL, NULL);
-(49, '1C', '2D', '8eme de finale', NULL, NULL, '8eme', 'Phase Finale', '2018-06-30 16:00:00', 'Kazan', 'Bein', NULL, NULL);
-(50, '1A', '2B', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-06-30 20:00:00', 'Sotchi', 'Bein', NULL, NULL);
-(51, '1B', '2A', '8eme de finale', NULL, NULL, '8eme', 'Phase Finale', '2018-07-01 16:00:00', 'Moscou', 'Bein', NULL, NULL);
-(52, '1D', '2C', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-01 20:00:00', 'Nijni Novgorod', 'Bein', NULL, NULL);
-(53, '1E', '2F', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-02 16:00:00', 'Samara', 'Bein', NULL, NULL);
-(54, '1G', '2H', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-02 20:00:00', 'Rostov', 'Bein', NULL, NULL);
-(55, '1F', '2E', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-03 16:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL);
-(56, '1H', '2G', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-03 20:00:00', 'Moscou', 'Bein', NULL, NULL);
-(57, '1A ou 2B', '1C ou 2D', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-06 16:00:00', 'Nijni Novgorod', 'Bein', NULL, NULL);
-(58, '1E ou 2F', '1G ou 2H', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-06 20:00:00', 'Kazan', 'Bein', NULL, NULL);
-(59, '1F ou 2E', '1H ou 2G', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-07 16:00:00', 'Samara', 'Bein', NULL, NULL);
-(60, '1B ou 2A', '1D ou 2C', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-07 20:00:00', 'Sotchi', 'Bein', NULL, NULL);
-(61, 'Vainqueur Q1', 'Vainqueur Q2', 'Demi finale', NULL, NULL,  'demi', 'Phase Finale', '2018-07-10 20:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL);
-(62, 'Vainqueur Q3', 'Vainqueur Q4', 'Demi finale', NULL, NULL,  'demi', 'Phase Finale', '2018-07-11 20:00:00', 'Moscou', 'Bein', NULL, NULL);
-(63, 'Perdant D1', 'Perdant D2', '3eme place', NULL, NULL,  '3eme_place', 'Phase Finale', '2018-07-14 16:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL);
+(48, 'Panama', 'Tunisie', 'Groupe G', NULL, NULL,'tour3', 'tour3', '2018-06-28 20:00:00', 'Saransk', 'Bein', NULL, NULL),
+(49, '1C', '2D', '8eme de finale', NULL, NULL, '8eme', 'Phase Finale', '2018-06-30 16:00:00', 'Kazan', 'Bein', NULL, NULL),
+(50, '1A', '2B', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-06-30 20:00:00', 'Sotchi', 'Bein', NULL, NULL),
+(51, '1B', '2A', '8eme de finale', NULL, NULL, '8eme', 'Phase Finale', '2018-07-01 16:00:00', 'Moscou', 'Bein', NULL, NULL),
+(52, '1D', '2C', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-01 20:00:00', 'Nijni Novgorod', 'Bein', NULL, NULL),
+(53, '1E', '2F', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-02 16:00:00', 'Samara', 'Bein', NULL, NULL),
+(54, '1G', '2H', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-02 20:00:00', 'Rostov', 'Bein', NULL, NULL),
+(55, '1F', '2E', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-03 16:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL),
+(56, '1H', '2G', '8eme de finale', NULL, NULL,  '8eme', 'Phase Finale', '2018-07-03 20:00:00', 'Moscou', 'Bein', NULL, NULL),
+(57, '1A ou 2B', '1C ou 2D', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-06 16:00:00', 'Nijni Novgorod', 'Bein', NULL, NULL),
+(58, '1E ou 2F', '1G ou 2H', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-06 20:00:00', 'Kazan', 'Bein', NULL, NULL),
+(59, '1F ou 2E', '1H ou 2G', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-07 16:00:00', 'Samara', 'Bein', NULL, NULL),
+(60, '1B ou 2A', '1D ou 2C', 'Quart de finale', NULL, NULL,  'quart', 'Phase Finale', '2018-07-07 20:00:00', 'Sotchi', 'Bein', NULL, NULL),
+(61, 'Vainqueur Q1', 'Vainqueur Q2', 'Demi finale', NULL, NULL,  'demi', 'Phase Finale', '2018-07-10 20:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL),
+(62, 'Vainqueur Q3', 'Vainqueur Q4', 'Demi finale', NULL, NULL,  'demi', 'Phase Finale', '2018-07-11 20:00:00', 'Moscou', 'Bein', NULL, NULL),
+(63, 'Perdant D1', 'Perdant D2', '3eme place', NULL, NULL,  '3eme_place', 'Phase Finale', '2018-07-14 16:00:00', 'Saint-Pétersbourg', 'Bein', NULL, NULL),
 (64, 'Vainqueur D1', 'Vainqueur D2', 'Finale', NULL, NULL, 'finale', 'Phase Finale', '2018-07-15 17:00:00', 'Moscou', 'Bein', NULL, NULL);
 
 

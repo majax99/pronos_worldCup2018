@@ -9,18 +9,19 @@
     </div>
 @endif
 
-<div class="jumbotron "  id="accueil">
+
+
+<div class=" offset-sm-2 col-8 "  id="accueil">
     <div class = "row ">
-        <img class = "col-2 offset-sm-2" src = "img/web_site/logo_CM2018.png" style = "height:150px">
-        <h1 class="text-center col-6">Pronos-Potos<br>
-        Coupe du monde 2018
+        <img class = "col-2 offset-sm-2 mt-5" src = "img/web_site/logo_CM2018.png" style = "height:100px">
+        <h1 class="text-center col-6 mt-5">Pronos-Potos Coupe du monde 2018
         </h1>
     </div>
 </div>
 
 <!-- PROCHAINS MATCHS -->
 <div class="row"><br>
-    <div class="col-12 col-md-5 d-block " >
+    <div class="col-12 col-md-5 d-block mt-5" >
         <div class="card ">
             <div class="card-header text-center text-white bg-info ">Prochains matchs<br>
             </div>
@@ -56,7 +57,7 @@
     </div>
 
 
-    <div class="col-12 col-md-offset-1 col-md-5 offset-md-2 d-block " >
+    <div class="col-12 col-md-offset-1 col-md-5 offset-md-2 d-block mt-5" >
         <div class="card">
             <div class="card-header text-center text-white bg-info ">Derniers résultats<br>
             </div>

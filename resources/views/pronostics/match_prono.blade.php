@@ -27,9 +27,10 @@
                 <span class = " float-left col-2 " > {{ Jenssegers\Date\Date::parse($match->date_match)->format('H:i')}}</br>
                 <i style ="font-size:0.8em;">{{$match->type}}</i>
                 </span>
-
+                @php($equipe1 = str_replace("_", " ", $match->equipe1))
+                @php($equipe2 = str_replace("_", " ", $match->equipe2))
                 <span class="  mt-2 pr-0  col-3 text-right" >
-                    <a class = "mr-1" href = "/equipes/{{$match->id1}}" style="color:black;" >{{$match->equipe1}}</a>
+                    <a class = "mr-1" href = "/equipes/{{$match->id1}}" style="color:black;" >{{$equipe1}}</a>
                     <img class = "mb-1"  src = "/img/country/{{$match->equipe1}}.png" >
                 </span>
                 <!--<span class = "mt-2 text-center  col-3 ml-4 " > -->
@@ -47,7 +48,7 @@
         <!--</span>--></span>
                 <span class="  mt-2 col-3 text-left pl-0">
                 <img  class = "mb-1" src = "/img/country/{{$match->equipe2}}.png" >
-                    <a class = "mr-1" href = "/equipes/{{$match->id2}}" style="color:black">{{$match->equipe2}}</a>
+                    <a class = "mr-1" href = "/equipes/{{$match->id2}}" style="color:black">{{$equipe2}}</a>
                 </span>
           
 

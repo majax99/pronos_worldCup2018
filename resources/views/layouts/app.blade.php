@@ -13,7 +13,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class = "body_{{ Request::segment(1) }}">
+    
     <div id="app">
 
         @include('inc.navbar')
