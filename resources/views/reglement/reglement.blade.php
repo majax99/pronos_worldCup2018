@@ -3,7 +3,7 @@
 @section('content')
 
     <div class = "row">
-        <div class="col-10 d-block mx-auto">
+        <div class="col-10 d-block mx-auto" style = "margin-top:50px;">
             <div class="card ">
                 <div class="card-header text-center bg-info text-white">Règlement</div>
                 <div class="card-body ">

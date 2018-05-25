@@ -56,7 +56,7 @@
                                 @endif
 
                             </i></br>
-                                @if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2') && (!empty($match->pronostic1)))
+                                @if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2') && ($match->pronostic1 >=0))
                                     {{$match->pronostic1}} - {{$match->pronostic2}}
                                 @endif
 
