@@ -11,19 +11,24 @@
 
 
 
-<div class=" offset-sm-2 col-8 "  id="accueil">
-    <div class = "row ">
-        <img class = "col-2 offset-sm-2 mt-5" src = "img/web_site/logo_CM2018.png" style = "height:100px">
-        <h1 class="text-center col-6 mt-5">Pronos-Potos Coupe du monde 2018
-        </h1>
+<div class=" offset-md-2 col-md-8 col-12 mt-5"  >
+
+    <div class = " card">
+        <div class="card-body text-center">
+            <div class = "row">
+                <img class = "offset-3 " src = "img/web_site/logo.jpg" >
+
+
+        </div>
+        </div>
     </div>
 </div>
 
 <!-- PROCHAINS MATCHS -->
 <div class="row"><br>
-    <div class="col-12 col-md-5 d-block mt-5" >
+    <div class="col-12  col-md-5   mt-5" >
         <div class="card ">
-            <div class="card-header text-center text-white bg-info ">Prochains matchs<br>
+            <div class="card-header text-center text-white " style = "background-color:#28639F">Prochains matchs<br>
             </div>
             <div class="card-body"  style="height:250px;">
                 <div class="row">
@@ -57,15 +62,14 @@
     </div>
 
 
-    <div class="col-12 col-md-offset-1 col-md-5 offset-md-2 d-block mt-5" >
+    <div class="col-12  col-md-5 offset-md-2 mt-5" >
         <div class="card">
-            <div class="card-header text-center text-white bg-info ">Derniers résultats<br>
-            </div>
+            <div class="card-header text-center text-white " style = "background-color:#28639F">Derniers résultats</div>
             <div class="card-body"  style="height:250px;">
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-12 "></div>
 
-                    <table class="table  table-sm">
+                    <table class="table">
                         <tbody>
 
                         {{Jenssegers\Date\Date::setLocale('fr')}}

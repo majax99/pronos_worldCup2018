@@ -14,6 +14,7 @@
 <form class="form-horizontal" action="pronostics" method="post">
  
     {{ csrf_field() }}
+    <div class="text-center p-2" ><input class=" btn btn-primary btn-lg" type="submit" value="Valider les pronostics" /></div>
     @foreach ($matchs as $match)
         @if($date != \Carbon\Carbon::parse($match->date_match)->format('dmY'))
             <div class = "alert alert-success ">
@@ -24,9 +25,11 @@
             @php ($date = Jenssegers\Date\Date::parse($match->date_match)->format('dmY'))
         @endif
         <p  class = "row">
+
                 <span class = " float-left col-2 " > {{ Jenssegers\Date\Date::parse($match->date_match)->format('H:i')}}</br>
                 <i style ="font-size:0.8em;">{{$match->type}}</i>
                 </span>
+
                 @php($equipe1 = str_replace("_", " ", $match->equipe1))
                 @php($equipe2 = str_replace("_", " ", $match->equipe2))
                 <span class="  mt-2 pr-0  col-3 text-right" >

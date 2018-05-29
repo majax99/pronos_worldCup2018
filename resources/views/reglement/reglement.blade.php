@@ -5,7 +5,7 @@
     <div class = "row">
         <div class="col-10 d-block mx-auto" style = "margin-top:50px;">
             <div class="card ">
-                <div class="card-header text-center bg-info text-white">Règlement</div>
+                <div class="card-header text-center colorBlue text-white">Règlement</div>
                 <div class="card-body ">
                     <div id="choixTour" class = "text-left" >
                         <ul class="list-group">
@@ -13,7 +13,7 @@
                             <li class="list-group-item">Les pronostics peuvent être fait tant que le match n'est pas commencé</li>
                             <li class="list-group-item">A partir de la phase finale, il faut pronostiquer le score à la fin du match (prolongations incluses)
                                 <br>
-                                <strong>Exemple</strong>, il y a 1-1 entre la France et l'Argentine au bout de 90mn puis 3-1 pour la France à la fin des prolongations.<br> Si j'ai indiquer la France vainqueur, j'aurais des points sinon je n'aurais aucun point pour ce match.
+                                <strong>Exemple</strong>, il y a 1-1 entre la France et l'Argentine au bout de 90mn puis 3-1 pour la France à la fin des prolongations.<br> Si j'ai indiqué la France vainqueur, j'aurais des points sinon je n'aurais aucun point pour ce match.
                             </li>
                             <li class="list-group-item">
                                 <strong > Tableau récapitulatif du comptage des points </strong><br><br>

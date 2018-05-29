@@ -8,7 +8,7 @@
         <div class = "row" style = "margin-top:50px;">
             <div class="col-12 d-block mx-auto">
                 <div class="card ">
-                    <div class="card-header text-center">Faire mes pronostics<br>
+                    <div class="card-header text-center"><h3>Faire mes pronostics</h3>
                         <i class="text-center" style = "font-size:12px">Les pronostics peuvent être fait tant que le match n'est pas commencé</i>
                     </div>
 

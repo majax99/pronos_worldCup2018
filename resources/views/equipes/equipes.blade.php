@@ -2,9 +2,9 @@
 
 @section('content')
         <div class = "row" style = "margin-top:50px;">
-            <div class="col-10 col-offset-2">
+            <div class="col-12 col-md-8 offset-md-2">
                 <div class="card ">
-                    <div class="card-header text-white bg-success mb-3">Equipes</div>
+                    <div class="card-header text-white mb-3 colorBlue"  >Equipes</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="table-responsive">
@@ -14,7 +14,7 @@
                                     <th class= "text-center" style="vertical-align:middle;"> Pays </th>
                                     <th class= "text-center" style="vertical-align:middle;">Nom </th>
                                     <th class= "text-center" style="vertical-align:middle;"> Groupe </th>
-                                    <th class= "text-center" style="vertical-align:middle;"> Rang  </th>
+                                    <th class= "text-center" style="vertical-align:middle;"> Classement FIFA  </th>
                                     </thead>
                                     <tbody>
                                     @php ($i = 1)
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-        <div class="text-center">
+        <div class="col-md-8 offset-md-2">
             {{ $teams->links() }}
         </div>
         </div>
@@ -55,8 +55,8 @@
                     window.location = $(this).data("href");
                 });
                 $(".clickable-row").hover(function() {
-                    $(this).css( 'cursor', 'pointer' )
-                        .toggleClass("bg-info")
+                    $(this).css( 'cursor', 'pointer')
+                        .toggleClass("colorBlue")
                         .siblings(".selected")
                         .removeClass("selected");
                 });

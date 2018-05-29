@@ -28,4 +28,6 @@
             $('#choixMatch').html( data );
         });
     });
+
+
 </script>

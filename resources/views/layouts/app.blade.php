@@ -12,10 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body class = "body_{{ Request::segment(1) }}">
+<body >
     
-    <div id="app">
+    <div id="app" class = " body_{{ Request::segment(1) }}">
 
         @include('inc.navbar')
         <div class = "container">
@@ -40,6 +41,12 @@
         $(".flash_message").fadeTo(5000, 500).slideUp(500, function(){
             $(".flash_message").slideUp(500);
         });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+
     </script>
 @yield('javascript')
 </body>

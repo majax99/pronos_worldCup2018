@@ -4,7 +4,7 @@
 <h3 class = "text-center">TOP 5 des joueurs </h3>
         <div class = "row" style = "margin-top:50px;">
                 <div class="card text-center" >
-                    <div class="card-header text-white bg-info  ">
+                    <div class="card-header text-white colorBlue  ">
                             <div >
                                 <h5 ><strong>Surnom :</strong> {{($data["team"]->nom)}} <img  src = "/img/country/{{$data["team"]->pays}}.png"></h5>
                                 <h5><strong> Pays :</strong> {{($data["team"]->pays)}}</h5>
