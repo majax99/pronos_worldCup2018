@@ -46,10 +46,14 @@
                         @foreach ($matchs_prono as $match_prono)
                         <tr>
                             <td>Le {{ Jenssegers\Date\Date::parse($match_prono->date_match)->format('d/m à H:i')}} </td>
-                        <td style= "vertical-align:middle;">
-                            <img  class = "d-none d-sm-block" src = "/img/country/{{$match_prono->equipe1}}.png" style="vertical-align : -3px;">
-                            <span class = "text-center">{{$match_prono->equipe1 }}-{{$match_prono->equipe2 }}</span>
-                            <img  class = "d-none d-sm-block" src = "img/country/{{$match_prono->equipe2 }}.png" style="vertical-align : -3px;" >
+
+                        @php($equipe_prono1 = str_replace("_", " ", $match_prono->equipe1))
+                        @php($equipe_prono2 = str_replace("_", " ", $match_prono->equipe2))
+
+                        <td class = "text-center">
+                            <!--<img  class = "d-none d-sm-block" src = "/img/country/{{$match_prono->equipe1}}.png" style="vertical-align : -3px;">-->
+                            <span class = "text-center">{{$equipe_prono1 }}-{{$equipe_prono2 }}</span>
+                            <!--<img  class = "d-none d-sm-block" src = "img/country/{{$match_prono->equipe2 }}.png" style="vertical-align : -3px;" >-->
                         </td>
                         <td class="text-center" style= "vertical-align:middle;" ><img  src = "img/chaine/{{$match_prono->chaine_TV}}.png" ></td>
                          </tr>
@@ -81,10 +85,14 @@
                             <tr>
                                 <td>Le {{ Jenssegers\Date\Date::parse($match_end->date_match)->format('d/m')}} </td>
                                 <!-- <td style= "vertical-align:middle;"> Le '.date_format($date,'d/m').' à '.$heure.'</td>-->
-                                <td style= "vertical-align:middle;">
-                                    <img class = "d-none d-sm-block" src = "/img/country/{{$match_end->equipe1}}.png" style="vertical-align : -3px;">
-                                    <span class = "text-center">{{$match_end->equipe1 }}-{{$match_end->equipe2 }}</span>
-                                    <img class = "d-none d-sm-block"  src = "img/country/{{$match_end->equipe2 }}.png" style="vertical-align : -3px;" >
+
+                                @php($equipe_end1 = str_replace("_", " ", $match_end->equipe1))
+                                @php($equipe_end2 = str_replace("_", " ", $match_end->equipe2))
+
+                                <td class ="text-center" style= "vertical-align:middle;">
+                                    <!--<img class = "d-none d-sm-block img-fluid mr-3" src = "/img/country/{{$match_end->equipe1}}.png" style="float:left">-->
+                                    <span >{{$equipe_end1 }}-{{$equipe_end2 }}</span>
+                                   <!-- <img class = "d-none d-sm-block img-fluid pr-5"  src = "img/country/{{$match_end->equipe2 }}.png" style="float:right" >-->
                                 </td>
                                 <td>
                                     <span class = "text-center">{{$match_end->resultat1 }}-{{$match_end->resultat2 }}</span>
