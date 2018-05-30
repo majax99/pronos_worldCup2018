@@ -16,7 +16,8 @@
     <div class = " card">
         <div class="card-body text-center">
             <div class = "row">
-                <img class = "offset-3 " src = "img/web_site/logo.jpg" >
+                <img class = "offset-md-3 img-fluid" src = "img/web_site/logo.jpg" >
+
 
 
         </div>
@@ -28,7 +29,7 @@
 <div class="row"><br>
     <div class="col-12  col-md-5   mt-5" >
         <div class="card ">
-            <div class="card-header text-center text-white " style = "background-color:#28639F">Prochains matchs<br>
+            <div class="card-header text-center text-white colorBlue" >Prochains matchs<br>
             </div>
             <div class="card-body"  style="height:250px;">
                 <div class="row">
@@ -46,9 +47,9 @@
                         <tr>
                             <td>Le {{ Jenssegers\Date\Date::parse($match_prono->date_match)->format('d/m à H:i')}} </td>
                         <td style= "vertical-align:middle;">
-                            <img  src = "/img/country/{{$match_prono->equipe1}}.png" style="vertical-align : -3px;">
+                            <img  class = "d-none d-sm-block" src = "/img/country/{{$match_prono->equipe1}}.png" style="vertical-align : -3px;">
                             <span class = "text-center">{{$match_prono->equipe1 }}-{{$match_prono->equipe2 }}</span>
-                            <img  src = "img/country/{{$match_prono->equipe2 }}.png" style="vertical-align : -3px;" >
+                            <img  class = "d-none d-sm-block" src = "img/country/{{$match_prono->equipe2 }}.png" style="vertical-align : -3px;" >
                         </td>
                         <td class="text-center" style= "vertical-align:middle;" ><img  src = "img/chaine/{{$match_prono->chaine_TV}}.png" ></td>
                          </tr>
@@ -64,7 +65,7 @@
 
     <div class="col-12  col-md-5 offset-md-2 mt-5" >
         <div class="card">
-            <div class="card-header text-center text-white " style = "background-color:#28639F">Derniers résultats</div>
+            <div class="card-header text-center text-white colorBlue" >Derniers résultats</div>
             <div class="card-body"  style="height:250px;">
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-12 "></div>
@@ -81,9 +82,9 @@
                                 <td>Le {{ Jenssegers\Date\Date::parse($match_end->date_match)->format('d/m')}} </td>
                                 <!-- <td style= "vertical-align:middle;"> Le '.date_format($date,'d/m').' à '.$heure.'</td>-->
                                 <td style= "vertical-align:middle;">
-                                    <img  src = "/img/country/{{$match_end->equipe1}}.png" style="vertical-align : -3px;">
+                                    <img class = "d-none d-sm-block" src = "/img/country/{{$match_end->equipe1}}.png" style="vertical-align : -3px;">
                                     <span class = "text-center">{{$match_end->equipe1 }}-{{$match_end->equipe2 }}</span>
-                                    <img  src = "img/country/{{$match_end->equipe2 }}.png" style="vertical-align : -3px;" >
+                                    <img class = "d-none d-sm-block"  src = "img/country/{{$match_end->equipe2 }}.png" style="vertical-align : -3px;" >
                                 </td>
                                 <td>
                                     <span class = "text-center">{{$match_end->resultat1 }}-{{$match_end->resultat2 }}</span>
@@ -99,6 +100,7 @@
     </div>
 
 </div>
+<div style = "margin-bottom:50px"> </div>
 
 
 

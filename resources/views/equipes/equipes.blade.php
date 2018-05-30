@@ -4,7 +4,7 @@
         <div class = "row" style = "margin-top:50px;">
             <div class="col-12 col-md-8 offset-md-2">
                 <div class="card ">
-                    <div class="card-header text-white mb-3 colorBlue"  >Equipes</div>
+                    <div class="card-header text-white mb-3 colorBlue"  >Equipes <span class = "float-right"><strong>Groupe {{$teams[0]->type}} </strong></span></div>
                     <div class="card-body">
                         <div class="row">
                             <div class="table-responsive">
@@ -12,8 +12,7 @@
                                     <thead class="thead-dark">
                                     <th style="width:5%;"></th>
                                     <th class= "text-center" style="vertical-align:middle;"> Pays </th>
-                                    <th class= "text-center" style="vertical-align:middle;">Nom </th>
-                                    <th class= "text-center" style="vertical-align:middle;"> Groupe </th>
+                                    <th class= "text-center d-none d-sm-block" style="vertical-align:middle;">Nom </th>
                                     <th class= "text-center" style="vertical-align:middle;"> Classement FIFA  </th>
                                     </thead>
                                     <tbody>
@@ -30,8 +29,7 @@
 
                                             <td class = "text-center"><img  src = "/img/country/{{$team->pays}}.png">                     </td>
                                             <td class = "text-center"> {{$pays}}                           </td>
-                                            <td class = "text-center"> {{$team->nom}}                             </td>
-                                            <td class = "text-center"> {{$team->type}}                             </td>
+                                            <td class = "text-center d-none d-sm-block"> {{$team->nom}}                             </td>
                                             <td class = "text-center"> {{$team->rang}}                             </td>
 
                                         </tr>
