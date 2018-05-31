@@ -11,7 +11,7 @@
                 <p>Désolé mais il y a un problème</p>
             </div>
         </div>
-        <img  class= "img img-responsive " src = "/img/errors/error1.gif">
+        <img  class= "img img-fluid " src = "/img/errors/error1.gif">
     </div>
 
 

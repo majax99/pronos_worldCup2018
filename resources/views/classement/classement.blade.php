@@ -4,7 +4,7 @@
     <div class = "row" style = "margin-top:50px;">
         <div class="col-12 d-block mx-auto">
             <div class="card ">
-                <div class="card-header text-center" >Classement général<br>
+                <div class="card-header text-center" ><h3>Classement général</h3>
                 </div>
 
                 <div class="card-body ">
@@ -22,8 +22,9 @@
                                 </thead>
                                 <tbody>
                                 @php( $i = 1)
+                                @foreach ($classement as $key => $value)
+                                <tr>
 
-                                <tr>@foreach ($classement as $key => $value)
                                     <td class= "text-left"><strong>{{$i}}</strong></td>
                                     <td class="text-center"><a href = "/classement/{{$key}}" style="color:black;" >{{$key}}</a></td>
                                     <td class="text-center"  > {{$value["points"]}}  </td>
@@ -31,7 +32,7 @@
                                     <td class="text-center">{{$value["score_exact"]}}</td>
                                 </tr>
                                 @php( $i++)
-@endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

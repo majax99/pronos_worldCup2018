@@ -35,3 +35,10 @@ Route::get('/classement', 'ClassementController@index')->name('classement');
 Route::get('/classement/{name}', 'ClassementController@show')->name('classement_user');
 
 Route::get('/règles', 'ReglesController@index')->middleware('auth')->name('regles');
+
+/************************** ADMIN ****************************************/
+//liste des users
+Route::get('/admin/users', 'AdminController@users_index')->middleware('admin')->name('admin_users');
+
+//liste des matchs
+Route::get('/admin/matchs', 'AdminController@matchs_index')->middleware('admin')->name('admin_matchs');

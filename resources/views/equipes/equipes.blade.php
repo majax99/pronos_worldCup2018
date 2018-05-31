@@ -11,9 +11,9 @@
                                 <table id="tableProno" class="table table-condensed">
                                     <thead class="thead-dark">
                                     <th style="width:5%;"></th>
-                                    <th class= "text-center" style="vertical-align:middle;"> Pays </th>
-                                    <th class= "text-center d-none d-sm-block" style="vertical-align:middle;">Nom </th>
-                                    <th class= "text-center" style="vertical-align:middle;"> Classement FIFA  </th>
+                                    <th class= "text-center" > Pays </th>
+                                    <th class= "text-center d-none d-sm-block " >Nom </th>
+                                    <th class= "text-center" > Classement FIFA  </th>
                                     </thead>
                                     <tbody>
                                     @php ($i = 1)
