@@ -42,3 +42,5 @@ Route::get('/admin/users', 'AdminController@users_index')->middleware('admin')->
 
 //liste des matchs
 Route::get('/admin/matchs', 'AdminController@matchs_index')->middleware('admin')->name('admin_matchs');
+Route::get('/admin/match/{id}/edit', 'AdminController@match_edit')->middleware('admin')->name('admin_edit_match');
+Route::put('/admin/match/{id}', 'AdminController@match_update')->middleware('admin')->name('admin_update_match');

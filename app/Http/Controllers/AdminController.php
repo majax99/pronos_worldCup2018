@@ -42,6 +42,47 @@ class AdminController extends Controller
 
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function match_edit($id)
+    {
+        $match = Match::find($id);
+
+        return view('admin/match_edit')->with('match', $match);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function match_update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'resultat1' => 'integer|min:0',
+            'resultat2' => 'integer|min:0'
+        ]);
+
+        $match = Match::find($id);
+        $match->equipe1 = $request->input('equipe1');
+        $match->equipe2 = $request->input('equipe2');
+        $match->date_match = $request->input('date_match');
+        $match->resultat1 = $request->input('resultat1');
+        $match->resultat2 = $request->input('resultat2');
+        $match->save();
+
+        return redirect('/admin/matchs')->with('success','Match updated');
+    }
+
+
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

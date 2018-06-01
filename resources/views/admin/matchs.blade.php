@@ -34,7 +34,7 @@
         <td>{{$match->date_match}}</td>
         <td>{{$match->lieu}}</td>
         <td>{{$match->chaine_TV}}</td>
-        <td></td>
+        <td><a href = "/admin/match/{{$match->id}}/edit" ><i class="btn btn-info fas fa-search"></i></a></td>
       </tr>
       @endforeach
     </tbody>
