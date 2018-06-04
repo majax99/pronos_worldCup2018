@@ -30,6 +30,63 @@ class AdminController extends Controller
 
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function user_edit($id)
+    {
+        $user = User::find($id);
+
+        return view('admin/user_edit')->with('user', $user);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function user_update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'isAdmin' => 'boolean'
+        ]);
+
+        $user = User::find($id);
+        $user->pseudo = $request->input('pseudo');
+        $user->email = $request->input('email');
+        $user->groupe = $request->input('groupe');
+        $user->isAdmin = $request->input('isAdmin');
+        $user->save();
+
+        return redirect('/admin/users')->with('success','user updated');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function user_destroy($id)
+    {
+        $user = User::find($id);        
+
+        //$user->delete();
+
+        return redirect('/admin/users')->with('success','user supprimé');
+    }
+
+
+
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -79,6 +136,11 @@ class AdminController extends Controller
 
         return redirect('/admin/matchs')->with('success','Match updated');
     }
+
+
+
+
+
 
 
 

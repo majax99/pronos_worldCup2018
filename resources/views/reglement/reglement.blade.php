@@ -17,7 +17,7 @@
                             </li>
                             <li class="list-group-item">
                                 <strong > Tableau récapitulatif du comptage des points </strong><br><br>
-                                <table class="table table-striped table-responsive-sm" >
+                                <table class="table table-striped table-responsive" >
                                     <thead class="thead-light">
                                     <tr >
                                         <th class = "text-center" scope="col">Niveau de la<br> compétition</th>

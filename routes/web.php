@@ -36,10 +36,21 @@ Route::get('/classement/{name}', 'ClassementController@show')->name('classement_
 
 Route::get('/règles', 'ReglesController@index')->middleware('auth')->name('regles');
 
+Route::get('/profil/{id}', 'UserController@show')->middleware('auth')->name('profil');
+Route::get('/profil/{id}/edit', 'UserController@edit')->middleware('admin')->name('profil_edit');
+Route::put('/profil/{id}', 'UserController@update')->middleware('admin')->name('profil_update');
+
 /************************** ADMIN ****************************************/
+
+//-------PARTIE USER --------//
 //liste des users
 Route::get('/admin/users', 'AdminController@users_index')->middleware('admin')->name('admin_users');
+Route::get('/admin/user/{id}/edit', 'AdminController@user_edit')->middleware('admin')->name('admin_edit_user');
+Route::put('/admin/user/{id}', 'AdminController@user_update')->middleware('admin')->name('admin_update_user');
+Route::delete('/admin/user/{id}', 'AdminController@user_destroy')->middleware('admin')->name('admin_destroy_user');
 
+
+//-------PARTIE MATCH --------//
 //liste des matchs
 Route::get('/admin/matchs', 'AdminController@matchs_index')->middleware('admin')->name('admin_matchs');
 Route::get('/admin/match/{id}/edit', 'AdminController@match_edit')->middleware('admin')->name('admin_edit_match');

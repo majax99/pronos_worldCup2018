@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<a  href="/admin/matchs" class = "btn btn-secondary">Retour</a>
 	<h1>Modifier le match</h1>
 	{!! Form::open(['action' => ['AdminController@match_update', $match->id], 'method' => 'POST']) !!}
 			<div class="form-group">	
