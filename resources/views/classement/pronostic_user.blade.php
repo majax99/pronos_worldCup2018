@@ -3,9 +3,9 @@
 @section('content')
 
     <div class = "row" style = "margin-top:50px;">
-        <div class="col-8 d-block mx-auto">
+        <div class="col-12 col-md-8 d-block mx-auto">
             <div class="card ">
-                <div class="card-header text-center bg-info text-white">Les pronostics de {{$pseudo}}
+                <div class="card-header text-center colorBlue text-white">Les pronostics de {{$pseudo}}
                 </div>
                 <div class="card-body ">
                     <div class = "text-center mb-3">
@@ -14,7 +14,7 @@
 
                         @foreach ($classement as $match)
                             <p  class = "row">
-                <span class = " float-left col-2 " >
+                <span class = " float-left col-md-2 d-none d-sm-block" >
                     @if ($match["resultat1"] == NULL)
                         <span class = "text-warning">En cours</span>
                     @else
@@ -39,34 +39,33 @@
                                     @endif
                                 </span>
                                     <!--</span>--></span>
-                                <span class="  col-3 text-left pl-0">
+                <span class="  col-3 text-left pl-0">
                 <img  src = "/img/country/{{$match["equipe2"]}}.png" >
                     <a class = "mr-1"  style="color:black">{{$match["equipe2"]}}</a>
                 </span>
-
-
-                                <span class = "float-right col-2 text-right
-                                @if ($match["points"] > 0)
-                                    text-success
-                                @else
-                                    text-danger
-                                @endif
-                                ">
-                            <span style="white-space:nowrap">{{$match["points"]}}
-                                @if ($match["points"] > 0)
-                                    points
-                                @else
-                                    point
-                                @endif
-
-                            </span>
-                            </span>
+                @if ($match["resultat1"] <> NULL)
+                <span class = "float-right col-2 text-right
+                    @if ($match["points"] > 0)
+                         text-success
+                    @else
+                          text-danger
+                    @endif
+                ">
+                 <span style="white-space:nowrap">{{$match["points"]}}
+                     @if ($match["points"] > 0)
+                         points
+                     @else
+                         point
+                     @endif
+                 </span>
+                 </span>
+                 @endif
                                 <br>
 
                             </p>
                             @endforeach
                             @else
-                            <div class="alert alert-warning" >Aucun match commencé sur ce tour</div>
+                            <div class="alert alert-warning" >Aucun match pronostiqué </div>
                         @endif
                     </div>
                 </div>

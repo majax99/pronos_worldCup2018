@@ -32,6 +32,16 @@ Pour les phases finales :
 Finale : *4
 
 */
+
+        $users = DB::table('users')
+            ->where('users.groupe', '=', auth()->user()->groupe)
+            ->get();
+
+        $nb_matchs = DB::table('matchs')
+            ->where('matchs.resultat1', '<>', NULL)
+            ->get();
+
+
         $matchs = DB::table('pronostics')
         ->leftJoin('matchs', 'matchs.id', '=', 'pronostics.match_id')
         ->leftJoin('users', 'users.id', '=', 'pronostics.user_id')
@@ -67,9 +77,9 @@ Finale : *4
                 $multiplicateur = 4;
 
 
-                if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2
-                || $match->resultat1 = $match->resultat2 && $match->pronostic1 = $match->pronostic2
-                || $match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
+                if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2)
+                || ($match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2)
+                || ($match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
                 && ($match->pronostic1 != NULL || $match->pronostic2 != NULL ))
                 {
                     $tableau_point[$match->pseudo]['resultats']++;
@@ -90,7 +100,6 @@ Finale : *4
                 else
                     $tableau_point[$match->pseudo]['points'] =$tableau_point[$match->pseudo]['points'] + 0;
         }
-
         foreach ($tableau_point as $key => $row) {
             $points[$key]  = $row['points'];
             $score_exact[$key] = $row['score_exact'];
@@ -98,7 +107,10 @@ Finale : *4
     if (!empty($tableau_point))
         array_multisort($points, SORT_DESC,$score_exact, SORT_DESC, $tableau_point);
 
-        return view('classement/classement')->with('classement', $tableau_point);
+    if (empty($tableau_point))
+        return view('classement/classement')->with('classement', $tableau_point)->with('users', $users);
+
+        return view('classement/classement')->with('classement', $tableau_point)->with('nb_matchs', $nb_matchs);
     }
 
     public function show($name)
@@ -140,9 +152,9 @@ Finale : *4
                 $multiplicateur = 4;
 
 
-            if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2
-                    || $match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2
-                            || $match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
+            if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2)
+                || ($match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2)
+                || ($match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
                 && ($match->pronostic1 != NULL || $match->pronostic2 != NULL ))
             {
                 if (($match->resultat1 <> $match->pronostic1 && $match->resultat2 <> $match->pronostic2) &&

@@ -3,7 +3,7 @@
 @section('content')
         <div class = "row">
             <h1 class = "col-12 text-center">Liste des membres</h1>
- <table class="table table-responsive ">
+ <table class="table table-responsive offset-2">
     <thead class="thead-dark">
       <tr>
         <th class= "text-center">id </th>

@@ -23,6 +23,7 @@ Route::resource('matchs','MatchsController');
 Route::resource('pronostics','PronosticsController');
 Route::get('pronostic/{element}', 'PronosticsController@afficherTour')->name('choix_prono');
 Route::get('pronostic/match/{choix}/{element}', 'PronosticsController@afficherMatch')->name('choix_prono2');
+Route::get('pronostics/pronostics_groupe/{id}', 'PronosticsController@afficherPronosGroupe')->name('pronos_groupe');
 
 Route::resource('equipes','EquipesController');
 

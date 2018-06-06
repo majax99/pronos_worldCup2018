@@ -16,4 +16,4 @@
 		<div class="alert alert-danger flash_message">
 				{{session('error')}}
 		</div>
-@endif	
+@endif

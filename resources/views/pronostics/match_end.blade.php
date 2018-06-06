@@ -21,7 +21,7 @@
             @endif
             <p  class = "row">
                 <span class = "float-left col-2 nowrap" style ="font-size:0.8em;">
-                    @if($match->resultat1 != '')
+                    @if(!is_null($match->resultat1))
                         <span class = "text-success "  ><strong>MATCH FINI</strong> </span>
                     @else
                         <span class = " text-warning "  ><strong>MATCH EN COURS</strong> </span>
@@ -34,12 +34,15 @@
                     <img class = "mb-1"  src = "/img/country/{{$match->equipe1}}.png" >
                 </span>
                 <span class = "col-2 text-center ">
-                    <strong style ="font-size:1.5em;">{{$match->resultat1}} - {{$match->resultat2}} </strong>
+                    <a class = "text-dark" href = "/pronostics/pronostics_groupe/{{$match->id}}">
+                        <strong style ="font-size:1.5em;">{{$match->resultat1}} - {{$match->resultat2}} </strong>
+                    </a>
                 </span>
                 <span class="  mt-2 col-3 text-left pl-0">
                 <img  class = "mb-1" src = "/img/country/{{$match->equipe2}}.png" >
                 <a class = "mr-1" href = "/equipes/{{$match->id2}}" style="color:black">{{$match->equipe2}}</a>
                 </span>
+                @if(!is_null($match->resultat1))
                         <span class = "float-right col-2 text-right  "  >
                             <i
                                 @if ($tableau[$i-1]["points"] == 0 )
@@ -61,6 +64,7 @@
                                 @endif
 
                         </span>
+                @endif
                         <br>
 
                 </p>

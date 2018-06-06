@@ -122,8 +122,8 @@ class AdminController extends Controller
     public function match_update(Request $request, $id)
     {
         $this->validate($request, [
-            'resultat1' => 'integer|min:0',
-            'resultat2' => 'integer|min:0'
+            'resultat1' => 'integer|nullable|min:0',
+            'resultat2' => 'integer|nullable|min:0'
         ]);
 
         $match = Match::find($id);

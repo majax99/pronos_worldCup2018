@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Pronostic;
+use App\Match;
 
 
 class PronosticsController extends Controller
@@ -133,10 +134,10 @@ class PronosticsController extends Controller
                     $multiplicateur = 4;
 
                 if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2')) {
-                    if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2
-                            || $match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2
-                                    || $match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
-                        && ($match->pronostic1 != NULL || $match->pronostic2 != NULL)) {
+                    if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2)
+                        || ($match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2)
+                        || ($match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
+                        && ($match->pronostic1 != NULL || $match->pronostic2 != NULL )) {
                         if (($match->resultat1 <> $match->pronostic1 && $match->resultat2 <> $match->pronostic2) &&
                             (($match->resultat1 - $match->resultat2) <> ($match->pronostic1 - $match->pronostic2)))
                             $tableau_prono[$i]['points'] = 3 * $multiplicateur + $points_8eme;
@@ -185,45 +186,138 @@ class PronosticsController extends Controller
     {
         $donnees = $request->all();
         //dd($donnees);
-
+        $error = 0;
         foreach($donnees as $key => $value){
             //echo $key.'<br>';
             //echo $value.'<br>';
             if ($key != '_token'){
                 $num = substr($key,0,1);
-                if ($num == 1){
-                    $match_id = substr($key,10,strlen($key)-10);
-                    $prono_id = DB::table('pronostics')
-                        ->select('id'  )
-                        ->where('pronostics.match_id' , '=', $match_id )
-                        ->where('pronostics.user_id', '=',  auth()->user()->id )
-                        ->get();
-                    $prono1 = $value;
+                $match_id = substr($key,10,strlen($key)-10);
+                $match_ok = Match::find($match_id);
+                $dateMatch = $match_ok->date_match;
+
+                if ($dateMatch > now() ){
+                //dd($match_id);
+                    if ($num == 1){
+                        //$match_id = substr($key,10,strlen($key)-10);
+                        $prono_id = DB::table('pronostics')
+                            ->select('id' )
+                            ->where('pronostics.match_id' , '=', $match_id )
+                            ->where('pronostics.user_id', '=',  auth()->user()->id )
+                            ->get();
+                        $prono1 = $value;
+                    }
+
+                    if ($num == 2 ){
+                        if ($prono_id->count()) {
+                            $prono = Pronostic::find(intval($prono_id[0]->id));
+                            $prono->pronostic1 = $prono1;
+                            $prono->pronostic2 = $value;
+                        }
+                        else{
+                            $prono = new Pronostic;
+                            $prono->pronostic1 = $prono1;
+                            $prono->pronostic2 = $value;
+                            $prono->user_id = auth()->user()->id;
+                            $prono->match_id = $match_id;
+                        }
+
+                        $prono->save();
+                    }
                 }
-
-                if ($num == 2 ){
-                    if ($prono_id->count()) {
-                        $prono = Pronostic::find(intval($prono_id[0]->id));
-                        $prono->pronostic1 = $prono1;
-                        $prono->pronostic2 = $value;
-                    }
-                    else{
-                        $prono = new Pronostic;
-                        $prono->pronostic1 = $prono1;
-                        $prono->pronostic2 = $value;
-                        $prono->user_id = auth()->user()->id;
-                        $prono->match_id = $match_id;
-                    }
-
-                    $prono->save();
+                else{
+                    $error++;
                 }
 
                    // echo 'SAUVEGARDE AVEC id'.auth()->user()->id.' match_id '.$match_id.' prono1 '.$prono1.' prono2 '.$prono2. '<br>';
 
             }
         }
+        if ($error > 0 )
+            return redirect('pronostics')->with('error', "Attention, un ou plusieurs matchs n'ont pas été pris en compte car ils étaient déjà commencé.");
         return redirect('pronostics')->with('success', "Vos pronostics ont été validés");
     }
+
+    public function afficherPronosGroupe($id)
+    {
+
+
+        $pronos  = DB::table('pronostics')
+            ->leftJoin('matchs', 'pronostics.match_id', '=', 'matchs.id')
+            ->leftJoin('users', 'users.id', '=', 'pronostics.user_id')
+            ->select('pronostics.pronostic1','pronostics.pronostic2','matchs.phase', 'matchs.resultat1', 'matchs.resultat2','matchs.equipe1','matchs.equipe2','users.pseudo')
+            ->where('pronostics.match_id','=', $id)
+            ->where('users.groupe','=', auth()->user()->groupe)
+            ->where('matchs.date_match','<', now())
+            ->get();
+
+        if ($pronos->count()==0) {
+            return view('errors/404');
+        }
+
+
+        $tableau_prono = [];
+        $i = 0;
+        foreach($pronos as $match){
+            if (property_exists($match,'pronostic1')){
+                $tableau_prono[$i]['pronostic1'] = $match->pronostic1;
+            }
+            if (property_exists($match,'pronostic2')){
+                $tableau_prono[$i]['pronostic2'] = $match->pronostic2;
+            }
+            if (property_exists($match,'pseudo')){
+                $tableau_prono[$i]['pseudo'] = $match->pseudo;
+            }
+            if ($match->phase == '8eme')
+                $points_8eme = 2;
+            else
+                $points_8eme = 0;
+
+            // multiplicateur pour le calcul des points
+            if ( in_array($match->phase,['tour1', 'tour2','tour3']))
+                $multiplicateur = 1;
+            else if ($match->phase == '8eme')
+                $multiplicateur = 1;
+            else if ($match->phase == 'quart')
+                $multiplicateur = 2;
+            else if ($match->phase == 'demi')
+                $multiplicateur = 3;
+            else if ($match->phase == '3eme_place')
+                $multiplicateur = 3;
+            else if ($match->phase == 'finale')
+                $multiplicateur = 4;
+
+            if (property_exists($match,'pronostic1') && property_exists($match,'pronostic2')) {
+                if (($match->resultat1 > $match->resultat2 && $match->pronostic1 > $match->pronostic2)
+                    || ($match->resultat1 == $match->resultat2 && $match->pronostic1 == $match->pronostic2)
+                    || ($match->resultat1 < $match->resultat2 && $match->pronostic1 < $match->pronostic2)
+                    && ($match->pronostic1 != NULL || $match->pronostic2 != NULL )) {
+                    if (($match->resultat1 <> $match->pronostic1 && $match->resultat2 <> $match->pronostic2) &&
+                        (($match->resultat1 - $match->resultat2) <> ($match->pronostic1 - $match->pronostic2)))
+                        $tableau_prono[$i]['points'] = 3 * $multiplicateur + $points_8eme;
+                    else if (($match->resultat1 == $match->pronostic1 && $match->resultat2 <> $match->pronostic2)
+                        || ($match->resultat1 <> $match->pronostic1 && $match->resultat2 == $match->pronostic2))
+                        $tableau_prono[$i]['points'] = 4 * $multiplicateur + $points_8eme;
+                    else if (($match->resultat1 <> $match->pronostic1 && $match->resultat2 <> $match->pronostic2) &&
+                        ($match->resultat1 - $match->resultat2 == $match->pronostic1 - $match->pronostic2))
+                        $tableau_prono[$i]['points'] = 5 * $multiplicateur + $points_8eme;
+                    else if ($match->resultat1 == $match->pronostic1 && $match->resultat2 == $match->pronostic2)
+                        $tableau_prono[$i]['points'] = 8 * $multiplicateur + $points_8eme;
+                }
+                else
+                    $tableau_prono[$i]['points']= 0;
+            }
+            else
+                $tableau_prono[$i]['points']= 0;
+            $i++;
+        }//dd($tableau_prono);
+
+        return view('pronostics/prono_match_end')->with('pronos', $pronos[0])
+            ->with('tableau', $tableau_prono);
+
+
+    }
+
 
     /**
      * Display the specified resource.
